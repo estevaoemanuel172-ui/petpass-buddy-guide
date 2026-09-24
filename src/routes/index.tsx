@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { PublicLayout } from '@/components/Layout'
+import { HowItWorksSection } from '@/components/HowItWorksSection'
 
 export const Route = createFileRoute('/')({
   component: LandingPage,
@@ -86,33 +87,8 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ─── COMO FUNCIONA ─── */}
-      <section className="steps-section" id="como-funciona">
-        <div className="container">
-          <div className="section-header">
-            <div className="section-eyebrow">Como funciona</div>
-            <h2 className="display-lg">Proteção simples.<br />Em poucos minutos.</h2>
-            <p className="section-subtitle">
-              Do cadastro ao QR Code na coleira, tudo em menos de 5 minutos.
-            </p>
-          </div>
-
-          <div className="steps-grid">
-            {[
-              { n: '01', icon: '📋', title: 'Cadastre seu pet', desc: 'Adicione as informações do seu pet: foto, nome, raça, características e dados de saúde importantes.' },
-              { n: '02', icon: '🔲', title: 'Gere o QR Code', desc: 'Receba automaticamente um QR Code exclusivo que aponta para o perfil digital do seu pet.' },
-              { n: '03', icon: '🏷️', title: 'Facilite o reencontro', desc: 'Coloque o QR Code na coleira. Quem encontrar seu pet pode escanear e entrar em contato imediatamente.' },
-            ].map(({ n, icon, title, desc }) => (
-              <div className="step-item" key={n}>
-                <div className="step-num">{n}</div>
-                <div className="step-icon-wrap">{icon}</div>
-                <div className="step-title">{title}</div>
-                <p className="step-desc">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ─── COMO FUNCIONA (VÍDEO TUTORIAL + GUIA 4 PASSOS + DICAS DE COLEIRA + AVISO + CTA) ─── */}
+      <HowItWorksSection />
 
       {/* ─── BENEFÍCIOS ─── */}
       <section className="benefits-section" id="beneficios">

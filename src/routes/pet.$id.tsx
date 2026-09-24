@@ -2,7 +2,6 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import type { Pet, Profile } from '@/lib/types'
-import { QRCodeSVG } from 'qrcode.react'
 
 export const Route = createFileRoute('/pet/$id')({
   component: PublicPetProfile,
@@ -37,8 +36,8 @@ function PublicPetProfile() {
         .rpc('get_owner_profile', { pet_id_param: id })
         .single()
 
-      if (ownerData) {
-        setOwner(ownerData)
+      if (ownerData && typeof ownerData === 'object' && 'id' in ownerData) {
+        setOwner(ownerData as unknown as Profile)
       }
 
       setLoading(false)
